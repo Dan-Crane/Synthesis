@@ -1,0 +1,37 @@
+.about {
+  padding: 20px 0;
+  .container {
+    display: flex;
+    justify-content: space-around;
+  }
+  &__skills {
+		max-width: 40%;
+		color: #3f3f3f;
+	}
+}
+
+.skills-about {
+  &__title {
+  }
+  &__wrap {
+		display: flex;
+		flex-wrap: wrap;
+    span {
+			display: block;
+			padding: 4px;
+			margin: 4px;
+			position: relative;
+			z-index: 2;
+			&::before{
+				content: '';
+				position: absolute;
+				z-index: -1;
+				height: 100%;
+				width: 100%;
+				top: 0;
+				left: 0;
+				background-color: #9B9595;
+			}
+    }
+  }
+}

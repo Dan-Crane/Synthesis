@@ -1,0 +1,124 @@
+header {
+  flex: 0 0 auto;
+  .container {
+    display: grid;
+    grid-template-columns: 200px 1fr 40%;
+    grid-gap: 20px;
+    grid-template-areas: "ava desc link";
+    // justify-items: stretch;
+    align-items: center;
+		// justify-content: space-between;
+		
+		@media all and (max-width:768px) {
+			grid-template-columns: 200px 1fr;
+			grid-template-areas: "ava desc"
+			"link link";
+		}
+		@media all and (max-width:425px) {
+			grid-template-columns: 140px 1fr;
+			grid-template-areas: "ava desc"
+			"link link";
+		}
+  }
+  background-color: #373434;
+  padding: 40px 0 20px;
+}
+
+.header {
+  &__ava {
+    grid-area: ava;
+    max-width: 200px;
+    display: block;
+  }
+  &__desc {
+    cursor: default;
+    grid-area: desc;
+    display: block;
+    display: flex;
+    flex-direction: column;
+  }
+  &__link {
+    grid-area: link;
+    justify-self: end;
+    color: #e7e7e7;
+    text-decoration: none;
+
+    display: flex;
+		align-items: center;
+		padding: 5px;
+
+		transition: all .15s ease-in-out;
+    span {
+			margin-left: 10px;
+      position: relative;
+			line-height: 28px;
+      &::before {
+				transition: transform .15s ease-in-out;
+        content: "";
+        position: absolute;
+        bottom: 0;
+        height: 1px;
+        width: 100%;
+        background-color: #e7e7e7;
+        transform: scale(0);
+      }
+		}
+		&:hover{
+			border-radius: 4px;
+			box-shadow: 0 3px 10px rgba(0,0,0,.2);
+			transform: translateY(-2px);
+			color: #ffffff;
+			span{
+				&::before{
+					transform: scale(1);
+				}
+			}
+		}
+  }
+}
+
+.desc-header {
+  font-family: "Lato", sans-serif;
+  color: #e7e7e7;
+  letter-spacing: 1.5px;
+  font-size: 24px;
+  line-height: 28px;
+  &__name {
+		font-weight: 400;
+		@media all and (max-width:425px) {
+			position: relative;
+			z-index: 2;
+			padding-left: 8px;
+			margin-bottom: 8px;
+			&::after{
+				content: '';
+				position: absolute;
+				z-index: -1;
+				height: 100%;
+				width: 40%;
+				left: 0;
+				bottom: 0;
+				background-color: #4f4f4f;
+			}
+		}
+  }
+  &__text {
+		font-weight: 900;
+		@media all and (max-width:425px) {
+			position: relative;
+			z-index: 2;
+			padding-left: 8px;
+			margin-bottom: 8px;
+			&::after{
+				content: '';
+				position: absolute;
+				z-index: -1;
+				height: 100%;
+				width: 40%;
+				left: 0;
+				bottom: 0;
+				background-color: #4f4f4f;
+			}
+		}
+  }
+}
